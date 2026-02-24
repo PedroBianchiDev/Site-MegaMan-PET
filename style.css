@@ -204,3 +204,59 @@ h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); t
     opacity: 0;
     visibility: hidden;
 }
+
+.origin-section {
+    padding: 60px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    margin: 40px 0;
+    border: 1px solid var(--primary-color); /* Use a cor azul que você já definiu */
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #00e5ff;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.origin-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.origin-text {
+    flex: 1;
+    min-width: 300px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.origin-text p {
+    margin-bottom: 15px;
+}
+
+.warning-box {
+    background: rgba(255, 166, 0, 0.1);
+    border-left: 4px solid #ffa600;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #ffcc80;
+}
+
+.origin-image-container {
+    flex: 0 1 300px;
+    text-align: center;
+}
+
+.toy-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+    border: 2px solid #00e5ff;
+}
