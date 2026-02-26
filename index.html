@@ -78,37 +78,113 @@
         </section>
 
         <section class="tutorial-section">
-            <h2 class="tutorial-title">MANUAL DO OPERADOR</h2>
-            <p class="tutorial-subtitle">Entenda a interface do seu dispositivo PET</p>
-            
-            <div class="pet-screen-container">
-                <img src="images/TelaPrincipal.png" alt="Interface MegaMan PET" class="pet-interface-image">
-                
-                <div class="info-overlay stats-info">
-                    <span class="num">1</span> Seu Level e Gold Atual
-                </div>
-                
-                <div class="info-overlay screen-info">
-                    <span class="num">2</span> Tela Principal do Navi
-                </div>
+    <h2 class="tutorial-title">MANUAL DO OPERADOR</h2>
+    <p class="tutorial-subtitle">Entenda a interface do seu dispositivo PET</p>
+    
+    <div class="pet-screen-container">
+        <img src="images/TelaPrincipal.png" alt="Interface MegaMan PET" class="pet-interface-image">
+        
+        <div class="info-overlay stats-info">
+            <span class="num">1</span> Seu Level e Gold Atual
+        </div>
+        
+        <div class="info-overlay screen-info">
+            <span class="num">2</span> Tela Principal do Navi
+        </div>
 
-                <div class="info-overlay bars-info">
-                    <span class="num">3</span> Barras de Vida e EXP
-                </div>
+        <div class="info-overlay bars-info">
+            <span class="num">3</span> Barras de Vida e EXP
+        </div>
 
-                <div class="info-overlay dpad-info">
-                    <span class="num">4</span> Setas de Movimentação
-                </div>
+        <div class="info-overlay dpad-info">
+            <span class="num">4</span> Setas de Movimentação (D-Pad)
+        </div>
 
-                <div class="info-overlay battle-info">
-                    <span class="num">5</span> Botão de Batalha
+        <div class="info-overlay battle-info">
+            <span class="num">5</span> Botão de Batalha
+        </div>
+
+        <div class="info-overlay cancel-btn-info">
+            <span class="num">B</span> Botão de Cancelar (Esquerdo)
+        </div>
+
+        <div class="info-overlay confirm-btn-info">
+            <span class="num">A</span> Botão de Confirmar (Direito)
+        </div>
+    </div>
+
+    <div class="navigation-guide">
+    <h3 class="guide-title">COMANDOS DE NAVEGAÇÃO</h3>
+    <div class="guide-grid">
+        <div class="guide-item cancel">
+            <div class="button-icon left">B</div>
+            <p><strong>CANCELAR (Esquerdo):</strong> Retorna para o menu anterior ou volta para a tela principal (Jack-out).</p>
+        </div>
+        <div class="guide-item confirm">
+            <div class="button-icon right">A</div>
+            <p><strong>CONFIRMAR (Direito):</strong> Navega entre as telas de Status e Loja. Pressione para entrar no menu selecionado.</p>
+        </div>
+    </div>
+
+    <div class="guide-text">
+        <strong>BOTÃO DE CONFIRMAÇÃO (DIREITO)</strong>
+        <p>Na tela principal, utilize o Botão de Confirmação (Direito) para alternar entre os módulos: Status do MegaMan e Loja. Para acessar qualquer um desses menus, pressione o botão de confirmação novamente. Caso deseje retornar ao menu anterior ou à tela principal, utilize o Botão de Cancelar (Esquerdo).</p>
+    </div>
+
+    <div class="navigation-screenshots">
+            <div class="screenshot-item">
+                <img src="images/MegaManStatusScreen.png" alt="Tela de Status do MegaMan" class="screenshot-img">
+                <p class="screenshot-caption">Tela: Status do MegaMan</p>
+            </div>
+            <div class="screenshot-item">
+                <img src="images/ShopScreen.png" alt="Tela da Loja" class="screenshot-img">
+                <p class="screenshot-caption">Tela: Loja de Itens</p>
+            </div>
+</div>
+
+<div class="battle-start-guide">
+    <div class="battle-header">
+        <img src="images/icon.ico" alt="Battle Icon" class="mini-icon">
+        <h3 class="guide-title">INICIANDO A BATALHA</h3>
+    </div>
+
+    <div class="battle-flex-container">
+        <div class="battle-image-main">
+            <img src="images/icon.png" alt="Símbolo MegaMan" class="navi-symbol-large">
+            <p class="screenshot-caption">Começar Batalha</p>
+        </div>
+
+        <div class="battle-info-side">
+            <div class="step-card">
+                <div class="step-text">
+                    <p>Pressione o <strong>Botão de Batalha</strong> (canto inferior direito com o símbolo do MegaMan).</p>
                 </div>
             </div>
-        </section>
+
+            <div class="alert-box-cyber">
+                <span class="alert-pulse-gold"></span>
+                <p><strong>SINAL DE ALERTA:</strong> Um som será emitido pelo PET. Esta é a sua chance de se preparar!</p>
+            </div>
+
+            <div class="battle-actions-horizontal">
+                <div class="action-btn-cyber cancel-red">
+        <strong>CANCELAR</strong>
+        <p>Aborta a conexão.</p>
+    </div>
+    <div class="action-btn-cyber confirm-blue">
+        <strong>CONFIRMAR</strong>
+        <p>Inicia o combate.</p>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+</section>
     </main>
 
     <footer class="footer">
-        <p>Desenvolvido por <strong>Pedro Bianchi</strong> | Projeto Independente inspirado em MegaMan Battle Network</p>
+        <p>Desenvolvido por <strong>Pedro Bianchi</strong> | Projeto inspirado em MegaMan Battle Network</p>
     </footer>
 
     <script src="script.js"></script>
