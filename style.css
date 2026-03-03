@@ -435,3 +435,139 @@ h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); t
     font-size: 1rem;
     color: var(--cyber-gold);
 }
+
+/* --- ANIMAÇÃO DE SORTEIO POR INVERSÃO (FLIP) --- */
+
+.lottery-visual {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 50px 20px;
+    border-radius: 15px;
+    border: 2px solid var(--cyber-blue);
+    min-width: 300px;
+    position: relative;
+}
+
+.symbol-container {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.flipping-symbol {
+    width: 120px;
+    filter: drop-shadow(0 0 10px var(--cyber-blue));
+    /* A mágica acontece aqui: */
+    animation: lotteryFlip 0.8s infinite steps(1); 
+}
+
+@keyframes lotteryFlip {
+    0% { 
+        transform: scaleX(1); 
+        filter: drop-shadow(0 0 15px var(--cyber-blue));
+    }
+    50% { 
+        transform: scaleX(-1); 
+        filter: drop-shadow(0 0 15px var(--cyber-gold));
+    }
+}
+
+.slot-player, .slot-enemy {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.slot-player { border-right: 4px solid var(--cyber-blue); }
+.slot-enemy { border-left: 4px solid #ff3e3e; }
+
+/* Melhoria nos textos gerais */
+p {
+    line-height: 1.6;
+    color: #cbd5e0; /* Um cinza azulado mais suave que o branco puro */
+    font-size: 1rem;
+}
+
+strong {
+    color: var(--cyber-gold);
+    letter-spacing: 0.5px;
+}
+
+/* Melhoria na seção de Sorteio (Lottery) */
+.lottery-section {
+    background: rgba(0, 11, 30, 0.7);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 123, 255, 0.3);
+    margin: 40px 0;
+}
+
+/* Deixar o texto de instrução com destaque de terminal */
+.instruction-step {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--cyber-gold);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.step-num {
+    font-size: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--cyber-gold);
+    text-shadow: 0 0 10px var(--cyber-gold);
+}
+
+/* Estilização dos Cards de Resultado dentro do Visual */
+.lottery-visual .result-card {
+    background: rgba(0, 11, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 140px;
+    transition: all 0.3s ease;
+}
+
+.result-card strong {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+.side-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+}
+
+/* Cores específicas para os lados */
+.result-card.left {
+    border-bottom: 3px solid var(--cyber-blue);
+    box-shadow: inset 0 0 10px rgba(0, 123, 255, 0.1);
+}
+
+.result-card.right {
+    border-bottom: 3px solid #ff3e3e;
+    box-shadow: inset 0 0 10px rgba(255, 62, 62, 0.1);
+}
+
+/* Ajuste no título das colunas de batalha */
+.battle-title {
+    background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.2), transparent);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 20px !important;
+}
