@@ -772,3 +772,46 @@ strong {
     border-radius: 8px;
     font-size: 0.85rem;
 }
+
+.feedback-visual {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.feedback-item {
+    display: flex;
+    flex-direction: column; /* Força o texto para cima e imagem para baixo */
+    align-items: center;    /* Centraliza os dois */
+    gap: 15px;              /* Espaço entre o texto e a imagem */
+}
+
+.status-tag {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;      /* Aumentei um pouco o tamanho */
+    font-weight: bold;
+    letter-spacing: 2px;
+    display: block;         /* Garante que ocupe a linha de cima */
+}
+
+/* Cor Azul para o Player */
+.player .status-tag {
+    color: #ffffff; 
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
+}
+
+/* Cor Vermelha para o Inimigo */
+.enemy .status-tag {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 62, 62, 0.8);
+}
+
+.feedback-img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
