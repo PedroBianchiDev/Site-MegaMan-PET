@@ -815,3 +815,230 @@ strong {
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
+
+/* --- SEÇÃO DE GAMEPLAY DE BATALHA --- */
+
+.gameplay-container {
+    display: flex;
+    gap: 40px;
+    background: rgba(0, 5, 15, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--cyber-blue);
+    flex-wrap: wrap;
+}
+
+/* Cena de Batalha (Lado Esquerdo) */
+.battle-scene {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+/* Barra de Tempo Vertical */
+.timer-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.timer-bar-container {
+    width: 12px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #00ff00;
+}
+
+.timer-bar-fill {
+    width: 100%;
+    height: 100%;
+    background: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    animation: timerDrain 7s linear infinite;
+    transform-origin: bottom;
+}
+
+@keyframes timerDrain {
+    0% { transform: scaleY(1); background: #00ff00; }
+    70% { background: #ffcc00; }
+    100% { transform: scaleY(0); background: #ff0000; }
+}
+
+.timer-text { font-family: 'Orbitron', sans-serif; color: #00ff00; font-size: 0.8rem; }
+
+/* Grid Visual */
+.battle-grid-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: 100%;
+}
+
+.grid-cell {
+    height: 100px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.player-cell.active {
+    background: rgba(0, 123, 255, 0.2);
+    border-color: var(--cyber-blue);
+}
+
+.target-cell {
+    background: rgba(255, 0, 0, 0.1);
+    border: 2px dashed #ff3e3e;
+}
+
+.mini-navi { width: 400px; filter: drop-shadow(0 0 10px var(--cyber-blue)); }
+
+.enemy-hp {
+    position: absolute;
+    top: -25px;
+    background: #ff3e3e;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+}
+
+.hit-indicator { font-size: 0.6rem; color: #ff3e3e; font-weight: bold; }
+
+/* Instruções */
+.gameplay-instructions {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.instruction-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--cyber-blue);
+    text-align: left;
+}
+
+.inst-header {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--cyber-gold);
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.status-labels {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.label {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.label.hit { background: #00ff0033; color: #00ff00; border: 1px solid #00ff00; }
+.label.miss { background: #ff3e3e33; color: #ff3e3e; border: 1px solid #ff3e3e; }
+
+/* --- SEÇÃO DE PROGRESSÃO E RECOMPENSAS --- */
+.progression-info {
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+.reward-box {
+    background: rgba(0, 20, 40, 0.8);
+    border: 1px solid var(--cyber-blue);
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.reward-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid rgba(0, 123, 255, 0.2);
+    padding-bottom: 15px;
+}
+
+.reward-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 10px var(--cyber-gold));
+}
+
+.boss-alert {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.boss-counter {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.count-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.6rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Pontinhos de progresso simulados */
+.progress-dots {
+    display: flex;
+    gap: 5px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dot.filled {
+    background: var(--cyber-blue);
+    box-shadow: 0 0 5px var(--cyber-blue);
+}
+
+.boss-warning {
+    flex: 1;
+    min-width: 280px;
+    text-align: left;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.highlight-num {
+    color: var(--danger-red);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-shadow: 0 0 10px rgba(255, 62, 62, 0.5);
+}

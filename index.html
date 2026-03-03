@@ -260,25 +260,103 @@
         <div class="attack-stats">
             <h3 class="guide-title">SISTEMA DE COMBATE</h3>
             <div class="stat-box">
-                <div class="stat-header"><span class="icon">⚡</span> CP (Custom Points)</div>
+                <div class="stat-header"><span class="icon">⚡</span>CP </div>
                 <p>Equivalente à "Mana". O CP reseta totalmente a cada nova batalha.</p>
             </div>
             
             <div class="stat-box">
-                <div class="stat-header"><span class="icon">💥</span> DMG (Dano)</div>
+                <div class="stat-header"><span class="icon">💥</span>DMG (Dano)</div>
                 <p>O dano base do chip. <span class="cyan-text">+ Números em Ciano</span> indicam o bônus de ATK que você upou e será somado ao dano total.</p>
             </div>
         </div>
 
         <div class="elemental-cycle-container">
-    <h3 class="guide-title">CICLO DE VANTAGEM (2x DANO)</h3>
-    
-    <div class="elemental-diamond">
-        <div class="el-wrapper top">
-            <img src="images/Elementos.png" alt="Água" class="el-img">
+            <h3 class="guide-title">CICLO DE VANTAGEM (2x DANO)</h3>
             
-</div>
-</div>
+            <div class="elemental-diamond">
+                <div class="el-wrapper top">
+                    <img src="images/Elementos.png" alt="Água" class="el-img">
+                    
+                </div>
+            </div>
+        </div>
+</section>
+
+<section class="battle-gameplay-section">
+    <h2 class="section-title">O CAMPO DE BATALHA</h2>
+    
+    <div class="gameplay-container">
+        <div class="battle-scene">
+            
+
+            <div class="battle-grid-visual">
+                <div class="grid-cell player-cell active">
+                    <img src="images/GridBattle.png" alt="MegaMan" class="mini-navi">
+                </div>
+            </div>
+
+            <div class="timer-side">
+                <div class="timer-bar-container">
+                    <div class="timer-bar-fill"></div>
+                </div>
+                <span class="timer-text">7s</span>
+            </div>
+        </div>
+
+        <div class="gameplay-instructions">
+            <div class="instruction-box">
+                <div class="inst-header">🕹️ MOVIMENTAÇÃO</div>
+                <p>Use os <strong>Direcionais (D-Pad)</strong> para mover o MegaMan pelo campo.</p>
+            </div>
+
+            <div class="instruction-box highlight-blue">
+                <div class="inst-header">🎯 ÁREA DE ATAQUE</div>
+                <p>O <strong>bloco azul</strong> indica o alcance do seu chip. O inimigo deve estar exatamente nesse bloco para receber o dano. Precione o botão direito para atacar</p>
+            </div>
+
+            <div class="instruction-box warning">
+                <div class="inst-header">⏳ BARRA DE TEMPO (7s)</div>
+                <p>Ao lado direito existe uma barra de tempo, você tem 7 segundos para se posicionar. Se o tempo acabar, o ataque é disparado <strong>automaticamente</strong>.</p>
+                <div class="status-labels">
+                    <span class="label hit">HIT: Acertou</span>
+                    <span class="label miss">MISS: Errou</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="progression-info">
+    <div class="reward-box">
+        <div class="reward-content">
+            <div class="reward-icon">🏆</div>
+            <div class="reward-text">
+                <h3 class="guide-title" style="text-align: left; margin-bottom: 5px;">VITÓRIA</h3>
+                <p>Ao deletar um inimigo na rede, você receberá <strong>Gold</strong> e <strong>EXP</strong> para evoluir seu NetNavi.</p>
+            </div>
+            <div class="reward-icon">👎</div>
+            <div class="reward-text">
+                <h3 class="guide-title" style="text-align: left; margin-bottom: 5px;">DERROTA</h3>
+                <p>Ao ser derrotado por um inimigo perderá <strong>Gold</strong> e <strong>EXP</strong>.</p>
+            </div>
+        </div>
+
+        <div class="boss-alert">
+            <div class="boss-counter">
+                <span class="count-label">STATUS DA ÁREA</span>
+                <div class="progress-dots">
+                    <span class="dot filled"></span>
+                    <span class="dot filled"></span>
+                    <span class="dot filled"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+            <div class="boss-warning">
+                <strong>BOSS:</strong> 
+                A cada <span class="highlight-num">10</span> inimigos derrotados, o proximo inimigo será um <strong> BOSS </strong>
+            </div>
+        </div>
     </div>
 </section>
 
