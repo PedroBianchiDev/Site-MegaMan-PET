@@ -147,7 +147,7 @@ h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); t
     text-align: left;
 }
 
-.num { background: var(--cyber-blue); padding: 2px 7px; border-radius: 50%; margin-right: 5px; font-weight: bold; }
+.num { background: var(--cyber-blue); padding: 2px 7px; border-radius: 50%; margin-right: 5px; font-weight: bold; text-align: left; }
 
 /* Legendas da Imagem */
 .stats-info { top: 0%; left: -60%; }
@@ -167,7 +167,7 @@ h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); t
     border-radius: 10px;
 }
 
-.guide-title { font-family: 'Orbitron', sans-serif; color: var(--cyber-gold); font-size: 1.2rem; margin: 10px 0 30px 0; text-align: center; }
+.guide-title { font-family: 'Orbitron', sans-serif; color: var(--cyber-gold); font-size: 1.2rem; margin: 10px 0 30px 0; text-align: left; }
 
 .guide-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
 
@@ -253,6 +253,14 @@ h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); t
     font-family: 'Orbitron', sans-serif; background: rgba(0, 0, 0, 0.4); transition: 0.3s;
 }
 
+.battle-gameplay-section .section-title {
+    font-size: clamp(1.4rem, 5vw, 2.5rem);
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+    display: block;
+}
+
 .action-btn-cyber:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
 
 .confirm-blue { border: 1px solid var(--cyber-blue); box-shadow: 0 0 10px rgba(0, 123, 255, 0.2); }
@@ -327,6 +335,128 @@ h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); t
     .guide-item { min-width: 100%; }
 }
 
+/* Responsividade geral */
+@media (max-width: 1024px) {
+    .hero-wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-text {
+        text-align: center;
+        padding: 0;
+    }
+
+    .action-area {
+        align-items: center;
+    }
+
+    /* Ajuste das legendas flutuantes da interface PET */
+    .info-overlay {
+        position: static;
+        width: 100%;
+        margin: 10px 0;
+        transform: none !important;
+    }
+
+    .pet-screen-container {
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Ajuste das Seções que são Flex (Lado a Lado) */
+    .origin-content, 
+    .battle-flex-container, 
+    .lottery-flex,
+    .battle-screen-preview,
+    .attributes-container,
+    .attack-system-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .origin-image-container, .battle-image-main, .data-card, .element-card {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Ajuste da Barra de Tempo de Vertical para Horizontal no Mobile */
+    .battle-scene {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+    .timer-bar-container {
+        width: 100%;
+        height: 12px;
+    }
+
+    .timer-bar-fill {
+        transform-origin: left;
+        animation: timerDrainHorizontal 7s linear infinite;
+    }
+
+    @keyframes timerDrainHorizontal {
+        0% { transform: scaleX(1); background: #00ff00; }
+        100% { transform: scaleX(0); background: #ff0000; }
+    }
+
+    /* --- AJUSTE DO DIAMANTE ELEMENTAL (O mais importante) --- */
+    .elemental-diamond {
+        transform: scale(0.8); /* Encolhe o diamante para caber na largura */
+        margin: 0 auto;
+    }
+
+    .screenshot-item {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes finos para telemóveis pequenos */
+    .elemental-diamond {
+        transform: scale(0.7);
+        margin-left: -25px; /* Compensa o scale para centralizar */
+    }
+
+    .btn-download {
+        font-size: 1rem;
+        padding: 15px 30px;
+    }
+
+    .circular-item .circle-content {
+        width: 140px;
+        height: 140px;
+    }
+
+    .circular-item strong {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .lottery-display {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .symbol-container {
+        order: -1; 
+        margin-bottom: 10px;
+    }
+}
 /* --- SEÇÃO DE LOADING E TRANSIÇÃO DE BATALHA --- */
 
 .loading-instruction-section {
@@ -478,16 +608,17 @@ h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); t
 }
 
 .symbol-container {
-    width: 80px;
+    width: 100px;
+    flex-shrink: 0; /* Impede o símbolo de encolher */
     display: flex;
     justify-content: center;
 }
 
 .flipping-symbol {
-    width: 120px;
+    width: 130px;
+    height: auto;
     filter: drop-shadow(0 0 10px var(--cyber-blue));
-    /* A mágica acontece aqui: */
-    animation: lotteryFlip 0.8s infinite steps(1); 
+    animation: lotteryFlip 0.2s infinite steps(1);
 }
 
 @keyframes lotteryFlip {
@@ -527,11 +658,21 @@ strong {
 
 /* Melhoria na seção de Sorteio (Lottery) */
 .lottery-section {
-    background: rgba(0, 11, 30, 0.7);
-    padding: 40px;
-    border-radius: 20px;
-    border: 1px solid rgba(0, 123, 255, 0.3);
+    background: rgba(0, 11, 30, 0.85);
+    border: 1px solid var(--cyber-blue);
+    padding: 30px 20px;
+    border-radius: 15px;
     margin: 40px 0;
+}
+
+.lottery-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Espaço entre os itens */
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* Deixar o texto de instrução com destaque de terminal */
@@ -564,29 +705,21 @@ strong {
 }
 
 .result-card strong {
-    display: block;
     font-family: 'Orbitron', sans-serif;
     font-size: 0.85rem;
-    margin-top: 5px;
+    color: #fff;
 }
 
 .side-label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0.6;
+    display: block;
+    font-size: 0.65rem;
+    color: #888;
+    margin-bottom: 5px;
 }
 
 /* Cores específicas para os lados */
-.result-card.left {
-    border-bottom: 3px solid var(--cyber-blue);
-    box-shadow: inset 0 0 10px rgba(0, 123, 255, 0.1);
-}
-
-.result-card.right {
-    border-bottom: 3px solid #ff3e3e;
-    box-shadow: inset 0 0 10px rgba(255, 62, 62, 0.1);
-}
+.result-card.left { border-bottom: 3px solid var(--cyber-blue); }
+.result-card.right { border-bottom: 3px solid #ff3e3e; }
 
 /* Ajuste no título das colunas de batalha */
 .battle-title {
@@ -820,42 +953,40 @@ strong {
 
 .gameplay-container {
     display: flex;
-    gap: 40px;
-    background: rgba(0, 5, 15, 0.9);
-    padding: 40px;
-    border-radius: 20px;
-    border: 1px solid var(--cyber-blue);
     flex-wrap: wrap;
-}
-
-/* Cena de Batalha (Lado Esquerdo) */
-.battle-scene {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: rgba(0, 0, 0, 0.5);
+    gap: 30px;
+    background: rgba(0, 11, 30, 0.9);
     padding: 30px;
     border-radius: 15px;
+    border: 1px solid var(--cyber-blue);
+    clear: both; 
 }
 
-/* Barra de Tempo Vertical */
+.battle-scene {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+
 .timer-side {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    flex: 0 0 auto;
 }
 
 .timer-bar-container {
-    width: 12px;
-    height: 150px;
+    width: 15px;
+    height: 160px; /* Altura no PC */
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
     border: 1px solid #00ff00;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
 }
 
 .timer-bar-fill {
@@ -877,14 +1008,17 @@ strong {
 
 /* Grid Visual */
 .battle-grid-visual {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    max-width: 400px;
     width: 100%;
 }
 
 .grid-cell {
-    height: 100px;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1; 
     border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     display: flex;
@@ -903,7 +1037,11 @@ strong {
     border: 2px dashed #ff3e3e;
 }
 
-.mini-navi { width: 400px; filter: drop-shadow(0 0 10px var(--cyber-blue)); }
+.mini-navi {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+}
 
 .enemy-hp {
     position: absolute;
@@ -920,10 +1058,11 @@ strong {
 
 /* Instruções */
 .gameplay-instructions {
-    flex: 1.2;
+    flex: 1;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 .instruction-box {
@@ -975,10 +1114,10 @@ strong {
 
 .reward-content {
     display: flex;
-    align-items: center;
-    gap: 20px;
-    border-bottom: 1px solid rgba(0, 123, 255, 0.2);
-    padding-bottom: 15px;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .reward-icon {
@@ -1047,23 +1186,117 @@ strong {
 .attributes-container {
     display: flex;
     gap: 40px;
-    background: rgba(0, 11, 30, 0.9);
-    padding: 40px;
-    border-radius: 20px;
-    border: 1px solid var(--cyber-gold);
     flex-wrap: wrap;
-    margin-top: 20px;
 }
 
-/* Mockup da tela de Status */
-.attributes-visual {
+.attributes-visual,
+.attributes-instructions {
     flex: 1;
-    min-width: 300px;
-    background: #000;
-    padding: 30px;
-    border-radius: 10px;
-    border: 2px solid #333;
-    position: relative;
+    min-width: 320px;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+
+    .attributes-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 25px;
+    }
+
+    .attributes-visual {
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+    }
+
+    .attributes-visual img {
+        width: 100%;
+        height: auto;
+    }
+
+    .attributes-instructions {
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+    }
+
+    .instruction-box {
+        text-align: center;
+    }
+
+    .alert-box-red {
+        text-align: center;
+    }
+
+}
+
+/* ===== DERROTA RESPONSIVO ===== */
+
+.reward-content-win,
+.reward-content-lose {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    min-width: 280px;
+}
+
+
+.reward-text-lose {
+    flex: 1;
+    min-width: 220px;
+}
+
+.reward-content-lose {
+    width: 100%;
+}
+
+.guide-title-lose {
+        text-align: left;
+        color: var(--cyber-gold);
+    }
+
+@media (max-width: 768px) {
+
+    .reward-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .reward-content-win,
+    .reward-content-lose {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .reward-content-lose {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .reward-text-lose {
+        width: 100%;
+    }
+
+    .guide-title-lose {
+        text-align: center;
+        color: var(--cyber-gold);
+    }
+
+    .guide-title {
+        text-align: center;
+        color: var(--cyber-gold);
+    }
+
 }
 
 .level-badge {
@@ -1082,6 +1315,20 @@ strong {
     font-size: 0.7rem;
     color: #00ff00;
     text-shadow: 0 0 10px #00ff00;
+}
+
+.section-title {
+    color: var(--cyber-blue);
+    text-align: center;
+   
+    font-size: clamp(1.5rem, 5vw, 2.5rem); 
+    margin: 40px 0 20px 0; 
+    text-shadow: 0 0 10px var(--cyber-blue-glow);
+    
+    width: 100%;
+    display: block; 
+    position: relative; 
+    z-index: 10; 
 }
 
 .status-row {
@@ -1136,4 +1383,230 @@ strong {
 /* Responsivo */
 @media (max-width: 850px) {
     .attributes-container { flex-direction: column; }
+}
+
+/* ==========================================================================
+   REGRAS DE RESPONSIVIDADE (MOBILE & TABLET)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .hero-wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-text {
+        text-align: center;
+        padding: 0;
+    }
+
+    .action-area {
+        align-items: center;
+    }
+
+    /* Ajuste das legendas flutuantes da interface PET */
+    .info-overlay {
+        position: static;
+        width: 100%;
+        margin: 10px 0;
+        transform: none !important;
+    }
+
+    .pet-screen-container {
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Ajuste das Seções que são Flex (Lado a Lado) */
+    .origin-content, 
+    .battle-flex-container, 
+    .lottery-flex,
+    .battle-screen-preview,
+    .attributes-container,
+    .attack-system-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .origin-image-container, .battle-image-main, .data-card, .element-card {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Ajuste da Barra de Tempo de Vertical para Horizontal no Mobile */
+    .battle-scene {
+        flex-direction: column;
+    }
+
+    .timer-bar-container {
+        width: 100%;
+        height: 12px;
+    }
+
+    .timer-bar-fill {
+        transform-origin: left;
+        animation: timerDrainHorizontal 7s linear infinite;
+    }
+
+    @keyframes timerDrainHorizontal {
+        0% { transform: scaleX(1); background: #00ff00; }
+        100% { transform: scaleX(0); background: #ff0000; }
+    }
+
+    /* --- AJUSTE DO DIAMANTE ELEMENTAL (O mais importante) --- */
+    .elemental-diamond {
+        transform: scale(0.8); /* Encolhe o diamante para caber na largura */
+        margin: 0 auto;
+    }
+
+    .screenshot-item {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes finos para telemóveis pequenos */
+    .elemental-diamond {
+        transform: scale(0.7);
+        margin-left: -25px; /* Compensa o scale para centralizar */
+    }
+
+    .btn-download {
+        font-size: 1rem;
+        padding: 15px 30px;
+    }
+
+    .circular-item .circle-content {
+        width: 140px;
+        height: 140px;
+    }
+
+    .circular-item strong {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .lottery-display {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .symbol-container {
+        order: -1; 
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .battle-scene {
+        flex-direction: column; /* FORÇA A BARRA PARA BAIXO DA IMAGEM */
+        text-align: center;
+    }
+
+    .timer-side {
+        width: 100%; /* Faz a barra ocupar a largura total do container no mobile */
+        margin-top: 15px;
+    }
+
+    .timer-bar-container {
+        width: 100%; /* Largura total */
+        height: 15px; /* Agora ela fica fininha e deitada */
+    }
+
+    .timer-bar-fill {
+        transform-origin: left; /* No mobile ela "corre" da direita para a esquerda */
+        animation: timerDrainHorizontal 7s linear infinite;
+    }
+}
+
+/* Animação para quando ela estiver embaixo (Horizontal) */
+@keyframes timerDrainHorizontal {
+    0% { transform: scaleX(1); background: #00ff00; }
+    70% { background: #ffcc00; }
+    100% { transform: scaleX(0); background: #ff0000; }
+}
+
+@media (max-width: 768px) {
+    /* Muda a direção para coluna: Imagem em cima, Barra embaixo */
+    .battle-scene {
+        flex-direction: column; 
+        gap: 20px;
+    }
+
+    .timer-side {
+        width: 100%; /* Faz a área da barra ocupar a largura total */
+    }
+
+    .timer-bar-container {
+        width: 80%; /* Barra não encosta nas bordas do celular */
+        height: 12px; /* Fica fininha para ser usada horizontalmente */
+        margin: 0 auto;
+    }
+
+    /* Mudamos a animação para ela correr da esquerda para a direita */
+    .timer-bar-fill {
+        transform-origin: left;
+        animation: timerDrainHorizontal 7s linear infinite;
+    }
+}
+
+/* Animações específicas */
+@keyframes timerDrain {
+    0% { transform: scaleY(1); background: #00ff00; }
+    100% { transform: scaleY(0); background: #ff0000; }
+}
+
+@keyframes timerDrainHorizontal {
+    0% { transform: scaleX(1); background: #00ff00; }
+    100% { transform: scaleX(0); background: #ff0000; }
+}
+
+@media (max-width: 768px) {
+
+    .battle-scene {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .timer-side {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .timer-bar-container {
+        width: 80%;
+        height: 12px;
+        margin: 0 auto;
+    }
+
+    .timer-bar-fill {
+        transform-origin: left;
+        animation: timerDrainHorizontal 7s linear infinite;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .info-overlay {
+        text-align: left;
+    }
+
+    .cancel-btn-info,
+    .confirm-btn-info {
+        text-align: left;
+    }
+
 }
